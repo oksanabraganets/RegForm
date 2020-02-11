@@ -15,12 +15,13 @@ public class Controller {
 
     public String inputStringWithRegEx(Scanner sc) {
         view.printMessage(view.INPUT_PROMPT);
-
-        while (! sc.hasNextLine() && sc.nextLine().matches(NAME_REGEX)){
+        String str = sc.nextLine();
+        while (!str.matches(NAME_REGEX)){
             view.printMessage(view.WRONG_INPUT);
-            sc.next();
+            System.out.println(str);
+            str = sc.nextLine();
         }
         System.out.println("good name!");
-        return sc.nextLine();
+        return str;
     }
 }
