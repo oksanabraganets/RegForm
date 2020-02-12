@@ -1,27 +1,30 @@
 import java.util.Scanner;
 public class Controller {
     private static final String NAME_REGEX = "[A-Z][a-z]{1,20}";
+    private static final String LOGIN_REGEX = "[A-Za-z]{1,20}";
     private View view;
+    private Model model;
 
-    public Controller(View view) {
+    public Controller(Model model, View view) {
         this.view = view;
+        this.model = model;
     }
 
     public void processUser() {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println(inputStringWithRegEx(sc));
+        model.setFirstName(inputStringWithRegEx(sc, view.NAME_PROMPT, NAME_REGEX));
+        model.setLogin(inputStringWithRegEx(sc, view.LOGIN_PROMPT, LOGIN_REGEX));
     }
 
-    public String inputStringWithRegEx(Scanner sc) {
-        view.printMessage(view.INPUT_PROMPT);
+    public String inputStringWithRegEx(Scanner sc, String prompt, String regex) {
+        view.printMessage(prompt);
         String str = sc.nextLine();
-        while (!str.matches(NAME_REGEX)){
+        while (!str.matches(regex)){
             view.printMessage(view.WRONG_INPUT);
-            System.out.println(str);
+            view.printMessage(prompt);
             str = sc.nextLine();
         }
-        System.out.println("good name!");
         return str;
     }
 }
