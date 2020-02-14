@@ -18,10 +18,38 @@ public class Record {
     }
 
     private void setShortName() {
-
+        StringBuilder str = new StringBuilder(lastName);
+        str.append(' ');
+        str.append(firstName.charAt(0));
+        str.append('.');
+        shortName = str.toString();
     }
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public void completeRecord(){
+        setShortName();
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getPatronymic() {
+        return patronymic;
+    }
+
+    public String getShortName() {
+        return shortName;
+    }
+
+    public String getLogin() {
+        return login;
     }
 }
