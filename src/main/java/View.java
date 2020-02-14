@@ -3,6 +3,8 @@ import java.util.ResourceBundle;
 
 public class View {
     public static String NAME_PROMPT;
+    public static String SURNAME_PROMPT;
+    public static String PATRONYMIC_PROMPT;
     public static String LOGIN_PROMPT;
     public static String WRONG_INPUT;
 
@@ -12,6 +14,8 @@ public class View {
         Locale locale = new Locale(lang);
         ResourceBundle rb = ResourceBundle.getBundle("text",locale);
         NAME_PROMPT = rb.getString("name");
+        SURNAME_PROMPT = rb.getString("lastname");
+        PATRONYMIC_PROMPT = rb.getString("patronymic");
         LOGIN_PROMPT = rb.getString("login");
         WRONG_INPUT = rb.getString("wrong");
     }

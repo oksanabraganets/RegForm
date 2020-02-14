@@ -17,8 +17,8 @@ public class Record {
         this.patronymic = patronymic;
     }
 
-    private void setShortName(String shortName) {
-        this.shortName = shortName;
+    private void setShortName() {
+
     }
 
     public void setLogin(String login) {

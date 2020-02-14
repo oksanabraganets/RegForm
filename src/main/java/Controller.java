@@ -13,8 +13,11 @@ public class Controller {
     public void processUser() {
 
         Scanner sc = new Scanner(System.in);
-        model.setFirstName(inputStringWithRegEx(sc, view.NAME_PROMPT, NAME_REGEX));
-        model.setLogin(inputStringWithRegEx(sc, view.LOGIN_PROMPT, LOGIN_REGEX));
+        model.record.setLastName(inputStringWithRegEx(sc,view.SURNAME_PROMPT,NAME_REGEX));
+        model.record.setFirstName(inputStringWithRegEx(sc, view.NAME_PROMPT, NAME_REGEX));
+        model.record.setPatronymic(inputStringWithRegEx(sc, view.PATRONYMIC_PROMPT, NAME_REGEX));
+        model.record.setLogin(inputStringWithRegEx(sc, view.LOGIN_PROMPT, LOGIN_REGEX));
+
     }
 
     public String inputStringWithRegEx(Scanner sc, String prompt, String regex) {
