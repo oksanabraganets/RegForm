@@ -17,7 +17,8 @@ public class Controller {
         model.record.setFirstName(inputStringWithRegEx(sc, view.NAME_PROMPT, NAME_REGEX));
         model.record.setPatronymic(inputStringWithRegEx(sc, view.PATRONYMIC_PROMPT, NAME_REGEX));
         model.record.setLogin(inputStringWithRegEx(sc, view.LOGIN_PROMPT, LOGIN_REGEX));
-
+        model.record.completeRecord();
+        printRecord();
     }
 
     public String inputStringWithRegEx(Scanner sc, String prompt, String regex) {
@@ -29,5 +30,13 @@ public class Controller {
             str = sc.nextLine();
         }
         return str;
+    }
+
+    private void  printRecord(){
+        view.printMessage(model.record.getFirstName());
+        view.printMessage(model.record.getLastName());
+        view.printMessage(model.record.getPatronymic());
+        view.printMessage(model.record.getShortName());
+        view.printMessage(model.record.getLogin());
     }
 }
