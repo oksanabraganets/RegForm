@@ -7,6 +7,7 @@ public class View {
     public static String PATRONYMIC_PROMPT;
     public static String LOGIN_PROMPT;
     public static String WRONG_INPUT;
+    public static String PHONE_PROMPT;
 
     public View(){
         String sourceName = "text";
@@ -18,6 +19,7 @@ public class View {
         PATRONYMIC_PROMPT = rb.getString("patronymic");
         LOGIN_PROMPT = rb.getString("login");
         WRONG_INPUT = rb.getString("wrong");
+        PHONE_PROMPT = rb.getString("phone");
     }
 
     public void printMessage(String message){

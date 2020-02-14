@@ -5,6 +5,11 @@ public class Record {
     private String patronymic;
     private String shortName;
     private String login;
+    private String phone;
+    public String getPhone() {
+        return phone;
+    }
+
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
@@ -51,5 +56,9 @@ public class Record {
 
     public String getLogin() {
         return login;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

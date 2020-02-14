@@ -2,6 +2,7 @@ import java.util.Scanner;
 public class Controller {
     private static final String NAME_REGEX = "[A-Z][a-z]{1,20}";
     private static final String LOGIN_REGEX = "[A-Za-z]{1,20}";
+    private static final String PHONE_REGEX = "\\(\\d{3}\\)\\d{7}";
     private View view;
     private Model model;
 
@@ -17,6 +18,7 @@ public class Controller {
         model.record.setFirstName(inputStringWithRegEx(sc, view.NAME_PROMPT, NAME_REGEX));
         model.record.setPatronymic(inputStringWithRegEx(sc, view.PATRONYMIC_PROMPT, NAME_REGEX));
         model.record.setLogin(inputStringWithRegEx(sc, view.LOGIN_PROMPT, LOGIN_REGEX));
+        model.record.setPhone(inputStringWithRegEx(sc,view.PHONE_PROMPT,PHONE_REGEX));
         model.record.completeRecord();
         printRecord();
     }
@@ -38,5 +40,6 @@ public class Controller {
         view.printMessage(model.record.getPatronymic());
         view.printMessage(model.record.getShortName());
         view.printMessage(model.record.getLogin());
+        view.printMessage(model.record.getPhone());
     }
 }
