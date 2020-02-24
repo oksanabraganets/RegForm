@@ -58,7 +58,13 @@ public class Record {
         return login;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhone(String phone) throws MobleOperatorException {
+        String str = phone.substring(1,4);
+        System.out.println(str);
+        if (str.equals("067"))
+            this.phone = phone;
+        else
+            throw new MobleOperatorException("Mobile Operator not found", str);
     }
+
 }
