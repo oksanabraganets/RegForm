@@ -14,12 +14,12 @@ public class Controller {
     public void processUser() {
 
         Scanner sc = new Scanner(System.in);
-        model.record.setLastName(inputStringWithRegEx(sc,view.SURNAME_PROMPT,NAME_REGEX));
-        model.record.setFirstName(inputStringWithRegEx(sc, view.NAME_PROMPT, NAME_REGEX));
-        model.record.setPatronymic(inputStringWithRegEx(sc, view.PATRONYMIC_PROMPT, NAME_REGEX));
-        model.record.setLogin(inputStringWithRegEx(sc, view.LOGIN_PROMPT, LOGIN_REGEX));
+        model.record.setLastName(inputStringWithRegEx(sc,View.SURNAME_PROMPT,NAME_REGEX));
+        model.record.setFirstName(inputStringWithRegEx(sc, View.NAME_PROMPT, NAME_REGEX));
+        model.record.setPatronymic(inputStringWithRegEx(sc, View.PATRONYMIC_PROMPT, NAME_REGEX));
+        model.record.setLogin(inputStringWithRegEx(sc, View.LOGIN_PROMPT, LOGIN_REGEX));
         try {
-            model.record.setPhone(inputStringWithRegEx(sc, view.PHONE_PROMPT, PHONE_REGEX));
+            model.record.setPhone(inputStringWithRegEx(sc, View.PHONE_PROMPT, PHONE_REGEX));
         }catch (MobleOperatorException e){
             System.out.println("wrong mobile operator: "+ e.getOperator());
         }
@@ -31,7 +31,7 @@ public class Controller {
         view.printMessage(prompt);
         String str = sc.nextLine();
         while (!str.matches(regex)){
-            view.printMessage(view.WRONG_INPUT);
+            view.printMessage(View.WRONG_INPUT);
             view.printMessage(prompt);
             str = sc.nextLine();
         }
