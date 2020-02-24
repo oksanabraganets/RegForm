@@ -18,7 +18,11 @@ public class Controller {
         model.record.setFirstName(inputStringWithRegEx(sc, view.NAME_PROMPT, NAME_REGEX));
         model.record.setPatronymic(inputStringWithRegEx(sc, view.PATRONYMIC_PROMPT, NAME_REGEX));
         model.record.setLogin(inputStringWithRegEx(sc, view.LOGIN_PROMPT, LOGIN_REGEX));
-        model.record.setPhone(inputStringWithRegEx(sc,view.PHONE_PROMPT,PHONE_REGEX));
+        try {
+            model.record.setPhone(inputStringWithRegEx(sc, view.PHONE_PROMPT, PHONE_REGEX));
+        }catch (MobleOperatorException e){
+            System.out.println("wrong mobile operator: "+ e.getOperator());
+        }
         model.record.completeRecord();
         printRecord();
     }
